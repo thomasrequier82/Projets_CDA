@@ -1,0 +1,24 @@
+<form [formGroup]="newAccountForm" (ngSubmit)="onSubmit()">
+  <div class="form-group card-header card flex-row flex-wrap margin-bottom-1">
+    <div class="col-sm-12 margin-bottom-1">
+      <label for="accountName" class="font-weight-bold">Intitulé du compte</label>
+      <input type="text" id="accountName" class="form-control" formControlName="accountName">
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 font-weight-bold">Propriétaire du compte</div>
+        <div class="col-sm-6 col-sm-6-0">
+          <label for="accountOwnerFirstname">Prénom</label>
+          <input type="text" id="accountOwnerFirstname" class="form-control" formControlName="accountOwnerFirstname">
+        </div>
+        <div class="col-sm-6 col-sm-6-0">
+          <label for="accountOwnerLastname">Nom</label>
+          <input type="text" id="accountOwnerLastname" class="form-control" formControlName="accountOwnerLastname">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" [disabled]="newAccountForm.invalid">Ajouter compte</button>
+  </div>
+</form>

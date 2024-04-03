@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group row">
+          <label for="base-currency" class="col-sm-12">De :</label>
+          <input type="number" id="base-currency" class="form-control col-sm-6" name="base-currency" ngModel required>
+          <select id="base-currency-sign" class="form-control col-sm-6" name="base-currency-sign" [ngModel]="defaultBaseCurrencySign" >
+            <option *ngFor="let currency of currencies" value="{{currency.name}}">{{currency.name}}</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <label for="target-currency" class="col-sm-12">Vers:</label>
+          <input type="number" id="target-currency" class="form-control col-sm-6" name="target-currency" value="{{result}}" ngModel disabled>
+          <select id="target-currency-sign" class="form-control col-sm-6" name="target-currency-sign" [ngModel]="defaultTargetCurrencySign" >
+            <option *ngFor="let currency of currencies" value="{{currency.name}}">{{currency.name}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Convertir</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="card flex-row flex-wrap margin-bottom-1" *ngFor="let account of accounts">
+    <div class="col-sm-12 text-uppercase card-header font-weight-bold">{{account.name}}</div>
+    <div class="col-sm-6 col-sm-6-0 card-text font-weight-bold">{{account.owner[0]}}&nbsp;{{account.owner[1]}}</div>
+    <div class="col-sm-6 col-sm-6-0 text-right font-weight-bold" [ngStyle]="{'color': getColor(account.money)}">{{account.money}}€</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-6-0">
+      <a routerLink="./new"><button class="btn btn-outline-primary">Créer un nouveau compte</button></a>
+    </div>
+    <div class="col-sm-6 col-sm-6-0 text-right">
+      <a routerLink="./transfer"><button class="btn btn-outline-primary">Faire un virement</button></a>
+    </div>
+  </div>
+</div>

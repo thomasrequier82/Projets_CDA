@@ -1,0 +1,23 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="row justify-content-around">
+    <div class="form-group col-sm-6 row justify-content-around">
+      <input type="number" id="base-currency" class="form-control col-sm-6 col-sm-6-0 border-right-0
+             border-right-radius-0" name="base-currency" (keyup.enter)="onSubmit(f)" ngModel required>
+      <select id="base-currency-sign" class="form-control col-sm-6 col-sm-6-0 border-left-radius-0"
+              name="base-currency-sign" [ngModel]="defaultBaseCurrencySign" (change)="onSubmit(f)">
+        <option *ngFor="let currency of currencies" value="{{currency.name}}">{{currency.name}}</option>
+      </select>
+    </div>
+    <div class="form-group col-sm-6 row justify-content-around">
+      <input type="text" id="target-currency" class="form-control col-sm-6 col-sm-6-0 border-right-0
+             border-right-radius-0" name="target-currency" value="{{result}}" disabled>
+      <select id="target-currency-sign" class="form-control col-sm-6 col-sm-6-0 border-left-radius-0"
+              name="target-currency-sign" [ngModel]="defaultTargetCurrencySign" (change)="onSubmit(f)">
+        <option *ngFor="let currency of currencies" value="{{currency.name}}">{{currency.name}}</option>
+      </select>
+    </div>
+    <div class="col-sm-12 text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Convertir</button>
+    </div>
+  </form>
+</div>

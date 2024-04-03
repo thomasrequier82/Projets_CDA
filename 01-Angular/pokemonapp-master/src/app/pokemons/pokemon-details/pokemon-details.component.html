@@ -1,0 +1,7 @@
+<p>{{id}}</p>
+<p>{{name}}</p>
+<p>{{hp}}</p>
+<p>{{cp}}</p>
+<img src="{{picture}}" alt="{{name}}">
+<p *ngFor='let type of types' style="{{ type | pokemonTypeColor }};">{{ type }}</p>
+<p>{{created | date:"dd/MM/yyyy"}}</p>

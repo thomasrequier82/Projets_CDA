@@ -1,0 +1,39 @@
+<div class="row col-sm-6-0 margin-auto text-center">
+  <meta charset="utf-8">
+  <form class="col-sm-12 no-padding" [formGroup]="newAccountForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex row flex-wrap col-sm-12-0 no-padding d-inline-flex">
+      <div class="col-sm-5">
+        <label class="col-sm-12 no-margin" for="nom">Nom</label>
+        <input class="col-sm-12 no-margin" type="text" name="nom" id="nom" formControlName="nom">
+      </div>
+      <div class="col-sm-5">
+        <label class="col-sm-12 no-margin" for="prenom">Prénom</label>
+        <input class="col-sm-12 no-margin" type="text" name="prenom" id="prenom" formControlName="prenom">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="mail">Adresse Mail</label>
+      <input type="email" name="" id="mail" formControlName="mail">
+    </div>
+    <div class="col-sm-12">
+      <label for="password">Mot de passe</label>
+      <input type="password" name="" id="password" formControlName="password">
+    </div>
+    <div class="col-sm-12">
+      <label for="dateNaissance">Date de naissance</label>
+      <input type="date" name="" id="dateNaissance" formControlName="dateNaissance">
+    </div>
+    <div class="col-sm-12">
+      <label class="col-sm-12" for="photo">Avatar</label>
+      <input class="col-sm-12" type="url" name="photo" id="photo" formControlName="photo">
+    </div>
+    <div class="col-sm-12">
+      <label for="phone">N° Téléphone</label>
+<!--      TODO: type téléphone custom -->
+      <input type="number" name="" id="phone" formControlName="phone">
+    </div>
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-primary" [disabled]="newAccountForm.invalid">Ajouter compte</button>
+    </div>
+  </form>
+</div>

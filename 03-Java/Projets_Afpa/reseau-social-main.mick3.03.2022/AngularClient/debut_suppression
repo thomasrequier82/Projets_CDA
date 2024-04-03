@@ -1,0 +1,27 @@
+pour lancer un docker avec un mot de passe
+docker run -e MYSQL_ROOT_PASSWORD="mot de passe" --name "nom qu'on veut donner au conteneur" -d mariadb
+docker run -e MYSQL_ROOT_PASSWORD=test --name mariadbcontainer -d mariadb
+
+pour verifier la connexion à la base de données
+docker exec -it "nom du conteneur" mysql -u root -p
+docker exec -it mariadbcontainer mysql -u root -p
+
+inspecter le conteneur pour avoir l'adresse IP pour s'y connecter
+docker inspect "nom du conteneur"
+docker inspect mariadbcontainer
+
+installer le client de mariadb
+sudo apt install mariadb-client
+
+pour se connecter au docker mariadb
+mysql -h "adresse ip du conteneur" -u root -p
+
+pour faire marcher un docker avec mariadb accessible de l'exterieur
+docker run -e MYSQL_ROOT_PASSWORD=test -p "adresse ip de la vm":3306:3306 --name mariadbcontainer -d mariadb
+docker run -e MYSQL_ROOT_PASSWORD=test -p 192.168.83.0:3306:3306 --name mariadbcontainer -d mariadb
+
+
+
+
+lien youtube
+https://www.youtube.com/watch?v=OabTOPOU2RU

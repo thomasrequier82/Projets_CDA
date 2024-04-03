@@ -1,0 +1,26 @@
+<h1 class='center'>Pokémons</h1>
+<div class='container'>
+  <div class="row no-margin">
+    <div *ngFor='let pokemon of getPokemons()' class="col-md-4 no-margin no-padding">
+      <div class="card margin--5 flex-row align-content-stretch flex-wrap empty-link" pkmnBorderCard (click)="onClick(pokemon)">
+          <div class="card-image col-sm-6 col-sm-6-0 padding--5">
+            <img style="max-width: 100%;height: auto;max-height: calc(112px - 1rem);" [src]="pokemon.picture" alt="pokemon.name">
+          </div>
+          <div class="card-stacked col-sm-6 col-sm-6-0 padding--5">
+            <div class="card-content">
+              <div>{{ pokemon.name }}</div>
+              <div><small>{{ pokemon.created | date:"dd/MM/yyyy" }}</small></div>
+              <p></p>
+              <!-- on ajoute le pipe pour les dates, avec le bon format : -->
+              <p></p>
+              <!-- on utilise la directive ngFor pour afficher tous les types
+              d'un pokémon donnée -->
+              <!--            <span *ngFor='let type of pokemon.types' class="{{ type | pokemonTypeColor }}">{{ type }}</span>-->
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<input #box (keyup.enter)="0" (blur)="0">
+<p>{{box.value}}</p>-->

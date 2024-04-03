@@ -1,0 +1,12 @@
+{
+    "0": {
+        "Nom": "Requier",
+        "Prénom": "Thomas",
+        "Âge": "25"
+    },
+    "1": {
+        "Nom": null,
+        "Prénom": null,
+        "Âge": null
+    }
+}

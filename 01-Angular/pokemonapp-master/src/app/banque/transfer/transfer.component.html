@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-6-0 text-center">Compte à débiter</div>
+    <div class="col-sm-6 col-sm-6-0 text-center">Compte à créditer</div>
+  </div>
+  <div *ngFor="let account of accounts; let i=index;">
+    <div class="row margin-bottom-1">
+      <div class="card col-sm-6 col-sm-6-0 no-padding empty-link flex-row flex-wrap"
+           [ngClass]="fromAccount == account ? 'selected' : ''" (click)="onClickFrom(account)">
+        <div class="card-header col-sm-12">{{account.id + account.name}}</div>
+        <div class="card-body col-sm-6 col-sm-6-0">{{account.owner[0] + " " +  account.owner[1]}}</div>
+        <div class="card-body col-sm-6 col-sm-6-0 text-right">{{account.money}}€</div>
+      </div>
+      <div class="card col-sm-6 col-sm-6-0 no-padding empty-link flex-row flex-wrap"
+           [ngClass]="toAccount == account ? 'selected' : ''" (click)="onClickTo(account)">
+        <div class="card-header col-sm-12">{{account.id + account.name}}</div>
+        <div class="card-body col-sm-6 col-sm-6-0">{{account.owner[0] + " " +  account.owner[1]}}</div>
+        <div class="card-body col-sm-6 col-sm-6-0 text-right">{{account.money}}€</div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-sm-12">
+      <label class="col-sm-12" for="money">Montant à envoyer</label>
+      <input class="col-sm-12" type="number" id="money" [(ngModel)]="money" (keyup.enter)="onSubmit()">
+      <button class="btn btn-primary" (click)="onSubmit()"
+              [disabled]="!fromAccount || !toAccount || !money || money <= 0">Confirmer</button>
+    </div>
+  </div>
+</div>
